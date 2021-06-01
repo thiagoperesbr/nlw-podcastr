@@ -4,7 +4,7 @@ import ptBR from "date-fns/locale/pt-BR";
 import styles from "./styles.module.scss";
 
 export function Header() {
-  const currentDate = format(new Date(), "EEEE, dd MMMM", {
+  const currentDate = format(new Date(), "EEEEEE, dd MMMM", {
     locale: ptBR,
   });
 
