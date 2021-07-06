@@ -7,6 +7,19 @@
     margin-top: 3rem;
     margin-bottom: 1.5rem;
   }
+
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: var(--gray-100);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--green-500);
+    border-radius: 4px;
+  }
 }
 
 .latestEpisodes {
@@ -17,7 +30,7 @@
     gap: 1.5rem;
 
     li {
-      background: var(--white);
+      background: var(--gray-50);
       border: 1px solid var(--gray-100);
       padding: 1.25rem;
       border-radius: 1.5rem;
