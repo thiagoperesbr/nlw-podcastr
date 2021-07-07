@@ -13,7 +13,7 @@ export function Header() {
     <header className={styles.headerContainer}>
       <Link href="/">
         <a>
-          <img src="/logo.svg" alt="Podcastr" />
+          <img src="/logo-black.svg" alt="Podcastr" />
         </a>
       </Link>
 

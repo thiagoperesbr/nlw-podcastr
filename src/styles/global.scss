@@ -20,6 +20,12 @@
   --purple-400: #9164fa;
   --purple-500: #8257e5;
   --purple-800: #6f48c9;
+
+  --black-800: #191622;
+  --black-600: #483c67;
+  --black-500: #50505d;
+  --black-400: #41414d;
+  --black-200: #988bc7;
 }
 
 @media (max-width: 1080px) {
@@ -35,7 +41,7 @@
 }
 
 body {
-  background: var(--black);
+  background: var(--black-400);
 }
 
 body,
@@ -54,7 +60,7 @@ h5,
 h6 {
   font-weight: 600;
   font-family: Lexend, sans-serif;
-  color: var(--gray-800);
+  color: var(--white);
 }
 
 h1 {
