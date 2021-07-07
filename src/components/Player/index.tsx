@@ -190,11 +190,11 @@ export function Player() {
         <div className={styles.volumeController}>
           {isMuted ? (
             <button type="button" disabled={!episode} onClick={handleDismuted}>
-              <img src="/volume-off.svg" alt="" />
+              <img src="/volume_off.svg" alt="" />
             </button>
           ) : (
             <button type="button" disabled={!episode} onClick={handleMuted}>
-              <img src="/volume-up.svg" alt="" />
+              <img src="/volume_up.svg" alt="" />
             </button>
           )}
           {episode ? (
