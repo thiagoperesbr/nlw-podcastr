@@ -1,5 +1,5 @@
 .playerContainer {
-  padding: 3rem 4rem;
+  padding: 2rem 4rem;
   width: 26.5rem;
   height: 100vh;
 
@@ -137,6 +137,32 @@
       &:hover:not(:disabled) {
         filter: brightness(0.95);
       }
+    }
+  }
+}
+
+.volumeController {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.8rem;
+  margin-bottom: 0.8rem;
+  gap: 1.5rem;
+
+  button {
+    background: transparent;
+    border: 0;
+    font-size: 0;
+
+    transition: filter 0.2s;
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: default;
+    }
+
+    &:hover:not(:disabled) {
+      filter: brightness(0.7);
     }
   }
 }

@@ -12,6 +12,7 @@ import { convertDurationToTimeString } from "../../utils/convertDurationToTimeSt
 export function Player() {
   const audioRef = useRef<HTMLAudioElement>(null);
   const [progress, setProgress] = useState(0);
+  const [volume, setVolume] = useState(0.5);
 
   const {
     episodeList,
@@ -19,10 +20,12 @@ export function Player() {
     isPlaying,
     isLooping,
     isShuffling,
+    isMuted,
     togglePlay,
     toggleLoop,
     toggleShuffle,
     setPlayingState,
+    setMutedState,
     playNext,
     playPrevious,
     hasNext,
@@ -39,6 +42,7 @@ export function Player() {
 
     if (isPlaying) {
       audioRef.current.play();
+      audioRef.current.volume = volume;
     } else {
       audioRef.current.pause();
     }
@@ -63,6 +67,22 @@ export function Player() {
     } else {
       clearPlayerState;
     }
+  }
+
+  function handleVolume(amount: number) {
+    amount = amount / 100;
+    audioRef.current.volume = amount;
+    setVolume(amount);
+  }
+
+  function handleMuted() {
+    setMutedState(true);
+    audioRef.current.volume = 0;
+  }
+
+  function handleDismuted() {
+    setMutedState(false);
+    audioRef.current.volume = volume;
   }
 
   return (
@@ -165,6 +185,27 @@ export function Player() {
           >
             <img src="/repeat.svg" alt="Repetir" />
           </button>
+        </div>
+
+        <div className={styles.volumeController}>
+          {isMuted ? (
+            <button type="button" disabled={!episode} onClick={handleDismuted}>
+              <img src="/volume_off.svg" alt="" />
+            </button>
+          ) : (
+            <button type="button" disabled={!episode} onClick={handleMuted}>
+              <img src="/volume_up.svg" alt="" />
+            </button>
+          )}
+          <Slider
+            min={0}
+            max={100}
+            value={volume * 100}
+            onChange={handleVolume}
+            trackStyle={{ backgroundColor: "#04d361" }}
+            railStyle={{ backgroundColor: "#9f75ff" }}
+            handleStyle={{ borderColor: "#04d361", borderWidth: 4 }}
+          />
         </div>
       </footer>
     </div>
